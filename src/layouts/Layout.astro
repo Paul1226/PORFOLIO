@@ -9,6 +9,9 @@ const { title } = Astro.props;
 import '@fontsource-variable/cinzel'; // --> 400 - 900
 import '@fontsource-variable/raleway'; // --> 100 - 900
 import '@fontsource-variable/manrope'; // --> 200 - 800
+
+import BgCircles from '../components/backgrounds/BgCircles.astro';
+import BgStars from '../components/backgrounds/BgStars.astro';
 ---
 
 <!doctype html>
@@ -21,8 +24,19 @@ import '@fontsource-variable/manrope'; // --> 200 - 800
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
-		<slot />
+	<body class="bg-slate-950 text-xs text-chill-50 p-4 relative">
+		<BgStars />
+		<main
+			class="main-container fixed top-2 left-2 right-2 bottom-2 max-w-[1366px] mx-auto"
+		>
+			<BgCircles />
+			<!-- <Sidebar /> -->
+			<section
+				class="section-container bg-chill-800/10 rounded-xl p-4 overflow-y-auto h-full scroll-smooth [grid-area:section]"
+			>
+				<slot />
+			</section>
+		</main>
 	</body>
 </html>
 
