@@ -1,0 +1,121 @@
+<div class="background-container absolute w-full h-full top-0 left-0 -z-10 overflow-hidden ">
+    <div class="background relative w-full h-full">
+        <div class="circle bg-chill-500/40 blur-3xl"></div>
+        <div class="circle bg-chill-600/40 blur-3xl"></div>
+        <div class="circle bg-chill-700/40 blur-3xl"></div>
+        <div class="circle bg-chill-800/40 blur-3xl"></div>
+        <div class="circle bg-chill-900/40 blur-3xl"></div>
+    </div>
+</div>
+
+<style>
+    .circle {
+        position: absolute;
+        border-radius: 50%;
+        animation: resize 20s linear infinite, fadeInOut 20s linear infinite;
+
+    }
+
+    @keyframes resize {
+        0%, 100% {
+            width: 50px;
+            height: 50px;
+        }
+        50% {
+            width: 200px;
+            height: 200px;
+        }
+    }
+
+    @keyframes fadeInOut {
+        0%, 100% {
+            opacity: 0;
+        }
+        10%, 90% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes move1 {
+        0% {
+            transform: translate(0, 0);
+        }
+        100% {
+            transform: translate(50vw, 10vh);
+        }
+    }
+
+    @keyframes move2 {
+        0% {
+            transform: translate(20vw, 0);
+        }
+        100% {
+            transform: translate(0, 80vh);
+        }
+    }
+
+    @keyframes move3 {
+        0% {
+            transform: translate(0, 30vh);
+        }
+        100% {
+            transform: translate(20vw, 0);
+        }
+    }
+
+    @keyframes move4 {
+        0% {
+            transform: translate(40vw, 60vh);
+        }
+        100% {
+            transform: translate(0, 0);
+        }
+    }
+
+    .circle:nth-child(1) {
+        animation: move1 20s linear infinite, resize 20s linear infinite, fadeInOut 20s linear infinite;
+    }
+
+    .circle:nth-child(2) {
+        animation: move2 20s linear infinite, resize 20s linear infinite, fadeInOut 20s linear infinite;
+        animation-delay: -4s;
+    }
+
+    .circle:nth-child(3) {
+        animation: move3 20s linear infinite, resize 20s linear infinite, fadeInOut 20s linear infinite;
+        animation-delay: -8s;
+    }
+
+    .circle:nth-child(4) {
+        animation: move4 20s linear infinite, resize 20s linear infinite, fadeInOut 20s linear infinite;
+        animation-delay: -12s;
+    }
+
+    .circle:nth-child(5) {
+        animation: move1 20s linear infinite, resize 20s linear infinite, fadeInOut 20s linear infinite;
+        animation-delay: -16s;
+    }
+</style>
+
+<script>
+    const container : HTMLElement | null = document.querySelector('.section-container');
+    const circles: NodeListOf<HTMLDivElement> = document.querySelectorAll('.circle');
+    const sizeRange = [50, 200]; // Tamaño mínimo y máximo de los círculos
+
+    circles.forEach(circle => {
+        // Posición inicial aleatoria dentro de un rango más limitado
+        const width : number = container?.offsetWidth ?? 0
+        const height : number = container?.offsetHeight ?? 0
+
+        const x = Math.floor(Math.random() * width)
+        const y = Math.floor(Math.random() * height)
+
+        circle.style.left = `${x}px`;
+        circle.style.top = `${y}px`;
+
+        // Tamaño inicial aleatorio
+        const size = Math.random() * (sizeRange[1] - sizeRange[0]) + sizeRange[0];
+        circle.style.width = `${size}px`;
+        circle.style.height = `${size}px`;
+    });
+</script>
