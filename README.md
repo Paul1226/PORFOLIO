@@ -8,6 +8,12 @@
 - [✔] Cambiar el favicon por uno personalozado.
 
 ### Tarea 2
-- [_] Crear la sección del sidebar y de main para el contenido del porfolio.
-- [_] Cargar iconos para sidebar.
-- [_] Crear las secciones para el main que serán: inicio, estudios, proyectos, contacto.
+- [✔] Crear la sección del sidebar y de main para el contenido del porfolio.
+- [✔] Cargar iconos para sidebar.
+- [✔] Crear las secciones para el main que serán: inicio, estudios, proyectos, contacto.
+
+### Tarea 3
+- [✔] crear seccion de header info y presentación.
+
+### Tarea 4
+- [_] Crear la seccion de estudios.
