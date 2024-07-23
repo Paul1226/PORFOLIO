@@ -12,6 +12,7 @@ import '@fontsource-variable/manrope'; // --> 200 - 800
 
 import BgCircles from '../components/backgrounds/BgCircles.astro';
 import BgStars from '../components/backgrounds/BgStars.astro';
+import Sidebar from '../sections/Sidebar.astro';
 ---
 
 <!doctype html>
@@ -30,7 +31,7 @@ import BgStars from '../components/backgrounds/BgStars.astro';
 			class="main-container fixed top-2 left-2 right-2 bottom-2 max-w-[1366px] mx-auto"
 		>
 			<BgCircles />
-			<!-- <Sidebar /> -->
+			<Sidebar />
 			<section
 				class="section-container bg-chill-800/10 rounded-xl p-4 overflow-y-auto h-full scroll-smooth [grid-area:section]"
 			>
@@ -49,6 +50,29 @@ import BgStars from '../components/backgrounds/BgStars.astro';
 
 	html {
 		font-family: 'Manrope Variable', sans-serif;
+	}
+
+	.main-container {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		grid-template-rows: 1fr 1fr;
+		grid-template-areas: "sidebar section";
+		gap: 0.5rem;
+		align-items: flex-start;
+	}
+	.section-container {
+		scrollbar-width: thin;
+		scrollbar-color: #0891b2 #ecfeff10;
+		grid-row: span 2;
+
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-areas: "info" "estudios" "portafolio" "contacto";
+		gap: 2rem;
+	}
+	::selection{
+		background-color: #a5f3fc;
+		color: black;
 	}
 </style>
 
