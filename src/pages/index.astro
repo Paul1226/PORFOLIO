@@ -1,7 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import HeaderInfo from '../sections/HeaderInfo.astro';
+import Presentacion from '../sections/Presentacion.astro';
+import Estudios from '../sections/Estudios.astro';
+import Portafolio from '../sections/Portafolio.astro';
 ---
 
-<Layout title="PaulDev | Portafolio">
-	
+<Layout title="PaulDev | Porfolio">
+	<div class="inicio flex flex-col gap-8 [grid-area:info] md:flex-row md:justify-around md:items-center">
+        <HeaderInfo></HeaderInfo>
+        <Presentacion/>
+    </div>
+    <Estudios></Estudios>
+    <Portafolio></Portafolio>
 </Layout>
