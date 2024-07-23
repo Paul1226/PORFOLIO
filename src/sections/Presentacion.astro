@@ -1,0 +1,94 @@
+---
+import infoPorfolio from "../../cvs/infoPorfolio.json"
+---
+
+<div class="max-w-xl md:order-1">
+    <div class="flex gap-4 mb-4">
+        <img
+            class="rounded-full shadow-lg size-14"
+            src="https://raw.githubusercontent.com/Paul1226/PaulDev-Porfolio/main/public/img-cv.jpg"
+            alt="Paúl Guachichullca"
+        />
+        <div
+            class="flex items-center md:justify-center"
+        >
+            <div class="flex items-center">
+                <span
+                    class="relative inline-flex overflow-hidden rounded-full p-[1px]"
+                >
+                    <span
+                        class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#51E4B8_0%,#21554E_50%,#51E4B8_100%)]"
+                    ></span>
+                    <div
+                        class="inline-flex items-center justify-center w-full px-3 py-1 text-xs text-chill-50 bg-chill-950/90 rounded-full cursor-pointer backdrop-blur-3xl whitespace-nowrap"
+                    >
+                        Disponible para trabajar
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>
+    <h1
+        class="text-4xl font-bold tracking-tight text-chill-50 sm:text-4xl font-cinzel mt-6"
+    >
+        Hey, soy PaulDev
+    </h1>
+    <p
+        class="mt-6 text-base text-chill-50"
+    >
+        Soy Paúl Esteban, conocido como PaulDev. Mi pasión por la tecnología comenzó con el  <strong class="font-bold text-chill-400">manejo de Máquinas CNC y diseño digital</strong>, llevándome a estudiar Desarrollo Full-Stack en ConquerBlocks para dominar el frontend y backend.
+    </p>
+    <nav class="flex flex-wrap gap-4 mt-8">
+        <a
+            href={infoPorfolio.personal.emailUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            role="link"
+            class="inline-flex items-center justify-center gap-2 px-4 py-1 text-chill-50 transition duration-300 border rounded-full bg-gray-800 border-gray-600 focus-visible:ring-yellow-500/80 text-md hover:bg-gray-900 hover:border-gray-700 group max-w-fit hover:text-white focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black"
+        >
+            <svg
+                class="size-4"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                    d="M12 18h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v7.5"
+                ></path><path d="M3 6l9 6l9 -6"></path><path d="M15 18h6"
+                ></path><path d="M18 15l3 3l-3 3"></path></svg
+            >
+            Contáctame
+        </a>
+        <a
+            href={infoPorfolio.personal.linkedinUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            role="link"
+            class="inline-flex items-center justify-center gap-2 px-4 py-1 text-chill-50 transition duration-300 border rounded-full bg-gray-800 border-gray-600 focus-visible:ring-yellow-500/80 text-md hover:bg-gray-900 hover:border-gray-700 group max-w-fit hover:text-white focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black"
+        >
+            <svg
+                class="size-4"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                    d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"
+                ></path><path d="M8 11l0 5"></path><path d="M8 8l0 .01"
+                ></path><path d="M12 16l0 -5"></path><path
+                    d="M16 16v-3a2 2 0 0 0 -4 0"></path></svg
+            >
+            LinkedIn
+        </a>
+    </nav>
+</div>

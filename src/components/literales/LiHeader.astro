@@ -1,0 +1,12 @@
+---
+interface Props {
+    url: string
+}
+const { url } = Astro.props
+---
+
+<li>
+    <a class="group p-1 w-full rounded-lg bg-chill-400/10 block " href={url} target="_blank" rel="noopener noreferrer">
+        <slot/>
+    </a>
+</li>
