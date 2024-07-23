@@ -3,6 +3,10 @@ export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		extend: {
+			backgroundImage: {
+				'chillinear': "radial-gradient(circle, #06b6d4 10%, #083344 100%)",
+				'textlinear': "linear-gradient(180deg, rgba(240,218,43,1) 15%, rgba(219,36,0,1) 70%, rgba(105,17,0,1) 99%)",
+			},
 			colors: {
 				'chill': {
 					'50': '#ecfeff',
