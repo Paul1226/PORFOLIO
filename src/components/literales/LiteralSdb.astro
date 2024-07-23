@@ -1,0 +1,36 @@
+---
+interface Props {
+    titulo: string
+    url: string
+}
+const { titulo, url } = Astro.props
+---
+
+<li class="">
+    <a href={url} class="flex flex-col justify-center items-center w-full [aspect-ratio:1/1] rounded-lg gap-1 p-1 hover:bg-chill-400/10 transition-colors duration-300 link">
+        <slot name="icon" />
+        <span class="leading-[10px] capitalize text-[10px]">{titulo}</span>
+    </a>
+</li>
+<style>
+    a.active{
+        background-color: #0e7490;
+        svg{
+            fill: #ecfeff;
+            stroke: #ecfeff;
+        }
+    }
+</style>
+
+<script>
+    const $links = document.querySelectorAll<HTMLAnchorElement>('.link');
+    const primerLink = $links[0];
+
+    primerLink.classList.add('active')
+    $links.forEach(link=>{
+        link.addEventListener('click', ()=>{
+            $links.forEach(link => link.classList.remove('active'))
+            link.classList.add('active')
+        })
+    })
+</script>
