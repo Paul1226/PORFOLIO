@@ -1,29 +1,18 @@
----
-// const downloadLink = "PaulDev-Portafolio.pdf";
-const viewLink = "/DownloadCv";
-const linkHref = viewLink;
----
-
-<a
-  id="download-cv-link"
-  class="mt-4 border-2 border-solid border-chill-900 py-2 px-3 rounded-full text-chill-50/50 block w-max mx-auto hover:text-chill-50 transition-all duration-300 link-cv"
-  href={linkHref}
-  rel="noopener noreferrer"
->
-  Descargar CV
-</a>
-
-<script is:inline>
-  // Verifica si estamos en el cliente
-  if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
-    // Verifica si es un dispositivo móvil
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    const downloadLink = "PaulDev-Portafolio.pdf";
-    const linkElement = document.getElementById('download-cv-link');
-    
-    if (isMobile && linkElement) {
-      linkElement.href = downloadLink;
-      linkElement.setAttribute('download', 'PaulDev-Portafolio.pdf');
-    }
-  }
-</script>
+<div class="flex justify-center items-center mt-5 gap-x-4">
+    <a
+        class="bg-chill-700 w-full text-center py-3 rounded-full font-semibold tracking-wide transition-shadow duration-300 ease-in-out hover:shadow-[0px_0px_8px_#ffffff60] hidden lg:inline-block"
+        href="/DownloadCV"
+        rel="noopener noreferrer"
+        target="_blank"
+    >
+        Visitar CV
+    </a>
+    <a
+        class="w-full max-w-max px-5 text-center py-3 rounded-full border-2 border-solid border-chill-900  transition-shadow duration-300 ease-in-out hover:shadow-[0px_0px_6px_#ffffff60]"
+        href="../../cvs/PaulDev-Porfolio.pdf"
+        rel="noopener noreferrer"
+        download="PaulDev-Curriculum.pdf"
+    >
+        Descargar CV
+    </a>
+</div>
