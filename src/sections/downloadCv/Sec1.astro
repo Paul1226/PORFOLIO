@@ -1,0 +1,46 @@
+---
+import Modulo from '../../components/compDownCv/Modulo.astro';
+import Pdeco from '../../components/compDownCv/Pdeco.astro';
+import { curriculum } from '../../../cvs/cv';
+const cvEdu = curriculum.educacion
+---
+
+<section class="first pt-10">
+    <div class="w-[200px]">
+        <Modulo title="Educación">
+            <Pdeco 
+                title={cvEdu.titulo}
+                subtitulo={cvEdu.institucion}
+                fecha={cvEdu.fecha}
+                details={cvEdu.detalle}
+            >
+        </Modulo>
+    </div>
+    <div class="flex flex-col gap-y-10">
+        <Modulo title="Sobre Mí">
+            <Pdeco
+                details={curriculum.about.resume}
+            >
+            </Pdeco>
+        </Modulo>
+        <Modulo title="Experiencia Laboral">
+            {
+                curriculum.experiencia.map(({cargo, empresa, inicio, fin, descrip, lugar}) => (
+                    <Pdeco
+                        title=`${cargo} | ${inicio} - ${fin}`
+                        subtitulo=`${empresa} - ${lugar}`
+                        details={descrip}
+                    />
+                ))
+            }
+        </Modulo>
+    </div>
+</section>
+
+<style>
+	.first{
+		display: grid;
+		grid-template-columns: auto 1fr;
+		column-gap: 2rem;
+	}
+</style>

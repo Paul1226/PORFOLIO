@@ -1,15 +1,11 @@
 ---
 import LiHeader from "../components/literales/LiHeader.astro";
 import ArticleHeader from "../components/ArticleHeader.astro";
-import infoPorfolio from "../../cvs/infoPorfolio.json"
 import EnlaceDinamico from "../components/EnlaceDinamico.astro";
-
 import Svg from "../components/Svg.astro"
 
-const personal = infoPorfolio.personal;
-const celular = Object.keys(personal)[5];
-const ubicacion = Object.keys(personal)[7];
-const cumpleanios = Object.keys(personal)[6];
+// import pers
+import { personal } from "../../cvs/infoPorfolio.ts"
 ---
 
 <header class="md:order-2" id="inicio">
@@ -29,19 +25,19 @@ const cumpleanios = Object.keys(personal)[6];
 
         <header class="flex flex-col gap-1 py-4 items-center">
             <h2 class="text-3xl font-bold text-chill-50 font-cinzel">
-                {infoPorfolio.personal.nombre}<span
+                {personal.nombre}<span
                     class="bg-textlinear text-transparent bg-clip-text"
-                    >{infoPorfolio.personal.apellido}</span
+                    >{personal.apellido}</span
                 >
             </h2>
 
             <p class="p-2 rounded-lg bg-chill-700/10 w-max">
-                {infoPorfolio.personal.titulo}
+                {personal.titulo}
             </p>
 
             <article class="pt-3">
                 <ul class="flex items-center gap-2">
-                    <LiHeader url={infoPorfolio.personal.githubUrl}>
+                    <LiHeader url={personal.githubUrl}>
                         <Svg
                             class="w-7 h-7 transtion-all duration-300 fill-chill-50/50 group-hover:fill-chill-50 group-hover:scale-110"
                             stroke-width="30"
@@ -72,7 +68,7 @@ const cumpleanios = Object.keys(personal)[6];
                             ></path>
                         </Svg>
                     </LiHeader>
-                    <LiHeader url={infoPorfolio.personal.linkedinUrl}>
+                    <LiHeader url={personal.linkedinUrl}>
                         <Svg
                             class="w-7 h-7 transtion-all duration-300 fill-chill-50/50 group-hover:fill-chill-50 group-hover:scale-110"
                             stroke-width="30"
@@ -83,7 +79,7 @@ const cumpleanios = Object.keys(personal)[6];
                             ></path>
                         </Svg>
                     </LiHeader>
-                    <LiHeader url={infoPorfolio.personal.emailUrl}>
+                    <LiHeader url={personal.emailUrl}>
                         <Svg
                             class="w-7 h-7 transtion-all duration-300 fill-chill-50/50 group-hover:fill-chill-50 group-hover:scale-110"
                             stroke-width="30"
@@ -104,11 +100,11 @@ const cumpleanios = Object.keys(personal)[6];
                 class="flex flex-col gap-1 items-center [align-self:stretch] bg-red-90 rounded-lg"
             >
                 <ArticleHeader
-                    title={celular}
-                    resumen={infoPorfolio.personal.celular}
+                    title={'Celular'}
+                    resumen={personal.celular}
                 >
                     <Svg
-                        class="w-7 h-7 stroke-chill-50/50 fill-transparent transition-colors duration-300 group-hover:fill-chill-50/50"
+                        class="w-7 h-7 stroke-gray-400 fill-transparent transition-colors duration-300 group-hover:fill-gray-400"
                         slot="icon"
                         stroke-width="30"
                     >
@@ -118,11 +114,11 @@ const cumpleanios = Object.keys(personal)[6];
                     </Svg>
                 </ArticleHeader>
                 <ArticleHeader
-                    title={ubicacion}
-                    resumen={infoPorfolio.personal.ubicación}
+                    title={'Ubicación'}
+                    resumen={personal.ubicacion}
                 >
                     <Svg
-                        class="w-7 h-7 stroke-chill-50/50 fill-transparent transition-colors duration-300 group-hover:fill-chill-50/50"
+                        class="w-7 h-7 stroke-gray-400 fill-transparent transition-colors duration-300 group-hover:fill-gray-400"
                         slot="icon"
                         stroke-width="30"
                     >
@@ -132,11 +128,11 @@ const cumpleanios = Object.keys(personal)[6];
                     </Svg>
                 </ArticleHeader>
                 <ArticleHeader
-                    title={cumpleanios}
-                    resumen={infoPorfolio.personal.cumpleaños}
+                    title={'Cumpleaños'}
+                    resumen={personal.cumpleanios}
                 >
                     <Svg
-                        class="w-7 h-7 stroke-chill-50/50 fill-transparent transition-colors duration-300 group-hover:fill-chill-50/50"
+                        class="w-7 h-7 stroke-gray-400 fill-transparent transition-colors duration-300 group-hover:fill-gray-400"
                         slot="icon"
                         stroke-width="30"
                     >

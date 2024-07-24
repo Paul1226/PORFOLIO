@@ -1,0 +1,62 @@
+---
+import Modulo from '../../components/compDownCv/Modulo.astro';
+import Pdeco from '../../components/compDownCv/Pdeco.astro';
+import { curriculum } from '../../../cvs/cv';
+const cvRef = curriculum.referencias
+const cvProj = curriculum.proyectos
+---
+<section class="third pt-14 pt-add-print pb-12">
+    <div class="w-[200px]">
+        <Modulo title="referencias">
+            {
+                cvRef.map(ref => (
+                    <Pdeco
+                        title={ref.nombre}
+                        subtitulo={ref.empresa}
+                        details=`${ref.celular} ${ref.email}`
+                    />
+                ))
+            }
+        </Modulo>
+    </div>
+    <div class="flex flex-col gap-y-10">
+        <Modulo title="proyectos">
+            {
+                cvProj.map(({nombre, inicio, fin, descrip, url, skills}) => {
+                    if (url){
+                        return (
+                            <Pdeco
+                                title=`${nombre} | ${inicio} - ${fin}`
+                                subtitulo={skills.map(skill => `${skill}`).join('-')}
+                                details={descrip}
+                                link={url}
+                            />
+                        )
+                    }else {
+                        return (
+                            <Pdeco
+                                title=`${nombre} | ${inicio} - ${fin}`
+                                subtitulo={skills.map(skill => `${skill}`).join('-')}
+                                details={descrip}
+                            />
+                        )
+                    }
+                })
+            }
+        </Modulo>
+    </div>
+</section>
+
+<style>
+    .third{
+        display: grid;
+        grid-template-columns: auto 1fr;
+        column-gap: 2rem;
+    }
+
+    @media print {
+        .third{
+            padding-top: 10rem;
+        }
+    }
+</style>

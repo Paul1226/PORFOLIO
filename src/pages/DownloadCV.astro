@@ -1,0 +1,28 @@
+---
+import LayoutCv from "../layouts/LayoutCv.astro"
+import HeaderCv from "../sections/downloadCv/HeaderCv.astro"
+
+import Sec1 from "../sections/downloadCv/Sec1.astro"
+import Sec2 from "../sections/downloadCv/Sec2.astro"
+import Sec3 from "../sections/downloadCv/Sec3.astro"
+---
+
+<LayoutCv title="Download | Cv">
+    <section class="w-[786px] h-[842px] mx-auto bg-slate-10 p-20 pt-12">
+		<div class="fixed top-0 left-0 w-full bg-sky-200 text-center z-10 no-print">
+			presiona <kbd>Ctrl + P</kbd> para imprimir el curriculum.
+		</div>
+		<HeaderCv />
+        <Sec1 />
+        <Sec2 />
+        <Sec3 />
+	</section>
+</LayoutCv>
+
+<style>
+	@media print {
+		.no-print {
+			display: none;
+		}
+	}
+</style>
