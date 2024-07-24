@@ -1,66 +1,37 @@
-export interface Curriculum {
+interface Curriculum {
     principal : {
-        nombre :string
-        apellido :string
-        profesion :string
-        direccion :string
-        cuidad :string
-        pais :string
-        postal :string
-        celular :string
-        email: string
-    }
+        [key:string] : string;
+    };
     educacion : {
-        titulo :string
-        institucion :string
-        fecha :string
-        detalle :string
-    }
+        [key:string] : string;
+    };
     about : {
-        resume :string
-    }
-    experiencia : [
-        {
-            cargo :string
-            empresa :string
-            inicio :string
-            fin :string
-            lugar :string
-            descrip :string
-        }
-    ],
+        resume :string;
+    };
+    experiencia : {
+        [key:string] : string;
+    }[];
     personales : {
-        nacimiento :string
-        nacionalidad :string
-        visado :string
-        civil :string
-    },
-    habilidades : string[],
+        [key:string] : string;
+    };
+    habilidades : string[];
     links : {
-        github :string
-        linkedin :string
-    },
-    referencias : [
-        {
-            nombre :string
-            empresa :string
-            celular :string
-            email :string
-        }
-    ],
-    proyectos : [
-        {
-            nombre : string
-            inicio : string
-            fin : string
-            descrip : string
-            url : string
-            skills : string[]
-        }
-    ]
+        [key:string] : string;
+    };
+    referencias : {
+        [key:string] : string;
+    }[];
+    proyectos : {
+        nombre : string;
+        inicio : string;
+        fin : string;
+        descrip : string;
+        url? : string;
+        skills : string[];
+    }[];
 }
 
-export const curriculum = {
+export const curriculum : Curriculum = {
     principal: {
         nombre : "paúl",
         apellido : "guachichullca",
