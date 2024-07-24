@@ -1,13 +1,21 @@
 ---
 const downloadLink = "PaulDev-Portafolio.pdf";
 const viewLink = "/DownloadCv";
-const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-const linkHref = isMobile ? downloadLink : viewLink;
+
+let isMobile = false;
+let linkHref = viewLink;
+
+if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
+  isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  linkHref = isMobile ? downloadLink : viewLink;
+}
 ---
 
 <a
-    class="mt-4 border-2 border-solid border-chill-900 py-2 px-3 rounded-full text-chill-50/50 block w-max mx-auto hover:text-chill-50 transition-all duration-300 link-cv pointer-events-none"
-    href={linkHref}
-    rel="noopener noreferrer"
-    {...isMobile && { download: "Curriculum_PaulDev.pdf" }}>Descargar CV</a
+  class="mt-4 border-2 border-solid border-chill-900 py-2 px-3 rounded-full text-chill-50/50 block w-max mx-auto hover:text-chill-50 transition-all duration-300 link-cv pointer-events-none"
+  href={linkHref}
+  rel="noopener noreferrer"
+  {...(isMobile ? { download: "Curriculum_PaulDev.pdf" } : {})}
 >
+  Descargar CV
+</a>
