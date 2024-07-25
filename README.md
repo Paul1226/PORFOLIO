@@ -16,4 +16,10 @@
 - [✔] crear seccion de header info y presentación.
 
 ### Tarea 4
-- [_] Crear la seccion de estudios.
+- [✔] Crear la seccion de estudios.
+- [✔] Crear la seccion de proyectos.
+
+### Tarea 5
+- [_] Trabajar en las skills.
+- [_] Mejorar el resume de presentación.
+- [_] Mejorar las de proyectos.
