@@ -89,6 +89,7 @@ export const curriculum : Curriculum = {
         "TypeScript",
     ],
     links : {
+        email : "mailto:paulguachichullca023@gmail.com",
         github : "https://github.com/Paul1226",
         linkedin : "https://www.linkedin.com/in/paul-guachichullca-2287602b1/"
     },
