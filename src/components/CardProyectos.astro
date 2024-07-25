@@ -1,0 +1,255 @@
+---
+interface Props {
+    isEven: string;
+    urlImg: string;
+    urlSitio?: string;
+    urlRepo?: string;
+    nombre: string;
+    descrip: string;
+    tecn?: string[];
+}
+
+const { isEven, urlImg, urlSitio, urlRepo, nombre, descrip, tecn } =
+    Astro.props;
+---
+
+<article
+    class=`w-full flex flex-col gap-5 mt-6 md:flex-row bg-chill-950/30 max-w-[800px] p-4 rounded-lg group ${isEven}`
+>
+    <figure
+        class="w-full max-w-[400px] md:min-w-[300px] overflow-hidden rounded-lg bg-transparent transition-all duration-300 relative"
+    >
+        <img
+            class="w-full h-full object-cover group-hover:scale-95 transition-all duration-300 rounded-lg opacity-100 group-hover:opacity-50 group-hover:brightness-50"
+            src={urlImg}
+            alt=`Imagen de ${nombre}`
+        />
+        {
+            (urlSitio || urlRepo) && (
+                <div class="links absolute inset-0 hidden flex-col gap-y-4 justify-center items-center group-hover:inline-flex">
+                    {urlSitio && (
+                        <a
+                            class="flex gap-x-2 items-center bg-slate-500 py-1 px-2 rounded-lg duration-300 hover:bg-slate-700 active:bg-slate-900"
+                            href={urlSitio}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <svg
+                                class="w-4 fill-chill-50"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                            >
+                                <path d="M7.896 16.104a1.5 1.5 0 1 1 2.121-2.121c1.326 1.326 3.64 1.327 4.966 0l4.989-4.989c1.369-1.369 1.369-3.597 0-4.966s-3.597-1.369-4.966 0a1.5 1.5 0 1 1-2.121-2.121 6.518 6.518 0 0 1 9.208 0 6.518 6.518 0 0 1 0 9.208l-4.989 4.989c-1.27 1.27-2.937 1.904-4.604 1.904s-3.335-.635-4.604-1.904Zm-1.384 7.893a6.494 6.494 0 0 0 4.604-1.904 1.5 1.5 0 1 0-2.121-2.121 3.515 3.515 0 0 1-4.966 0 3.516 3.516 0 0 1 0-4.966l4.961-4.961a3.514 3.514 0 0 1 4.966 0 1.5 1.5 0 1 0 2.121-2.121 6.518 6.518 0 0 0-9.208 0l-4.962 4.961a6.518 6.518 0 0 0 0 9.208 6.49 6.49 0 0 0 4.604 1.904Z" />
+                            </svg>
+                            <span>Sitio</span>
+                        </a>
+                    )}
+                    {urlRepo && (
+                        <a
+                            class="flex gap-x-2 items-center bg-slate-700 border-2 p-1 rounded-lg duration-300 hover:bg-slate-900 active:bg-black"
+                            href={urlRepo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <svg
+                                class="w-5"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                stroke-width="2.5"
+                                stroke="currentColor"
+                                fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path
+                                    stroke="none"
+                                    d="M0 0h24v24H0z"
+                                    fill="none"
+                                />
+                                <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+                            </svg>
+                            <span>Repositorio</span>
+                        </a>
+                    )}
+                </div>
+            )
+        }
+    </figure>
+    <div class="flex flex-col gap-y-4">
+        <h2 class="font-semibold text-xl text-chill-50">{nombre}</h2>
+        <p class="p-0 m-0 text-sm text-chill-50/60 md:text-base text-pretty">
+            {descrip}
+        </p>
+        {
+            tecn && (
+                <div class="flex gap-4 items-center flex-wrap font-bold tecn">
+                    {tecn.map((tecn) => {
+                        if (tecn === "astro") {
+                            return (
+                                <span class="before:content-['Astro']">
+                                    <svg
+                                        class="w-4"
+                                        viewBox="0 0 256 366"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        preserveAspectRatio="xMidYMid"
+                                    >
+                                        <path
+                                            d="M182.022 9.147c2.982 3.702 4.502 8.697 7.543 18.687L256 246.074a276.467 276.467 0 0 0-79.426-26.891L133.318 73.008a5.63 5.63 0 0 0-10.802.017L79.784 219.11A276.453 276.453 0 0 0 0 246.04L66.76 27.783c3.051-9.972 4.577-14.959 7.559-18.654a24.541 24.541 0 0 1 9.946-7.358C88.67 0 93.885 0 104.314 0h47.683c10.443 0 15.664 0 20.074 1.774a24.545 24.545 0 0 1 9.95 7.373Z"
+                                            fill="#fff"
+                                        />
+                                        <path
+                                            fill="#FF5D01"
+                                            d="M189.972 256.46c-10.952 9.364-32.812 15.751-57.992 15.751-30.904 0-56.807-9.621-63.68-22.56-2.458 7.415-3.009 15.903-3.009 21.324 0 0-1.619 26.623 16.898 45.14 0-9.615 7.795-17.41 17.41-17.41 16.48 0 16.46 14.378 16.446 26.043l-.001 1.041c0 17.705 10.82 32.883 26.21 39.28a35.685 35.685 0 0 1-3.588-15.647c0-16.886 9.913-23.173 21.435-30.48 9.167-5.814 19.353-12.274 26.372-25.232a47.588 47.588 0 0 0 5.742-22.735c0-5.06-.786-9.938-2.243-14.516Z"
+                                        />
+                                    </svg>
+                                </span>
+                            );
+                        } else if (tecn === "tailwind") {
+                            return (
+                                <span class="before:content-['Tailwind'] py-1">
+                                    <svg
+                                        class="w-7"
+                                        viewBox="0 0 256 154"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        preserveAspectRatio="xMidYMid"
+                                    >
+                                        <defs>
+                                            <linearGradient
+                                                x1="-2.778%"
+                                                y1="32%"
+                                                x2="100%"
+                                                y2="67.556%"
+                                                id="gradient"
+                                            >
+                                                <stop
+                                                    stop-color="#2298BD"
+                                                    offset="0%"
+                                                />
+                                                <stop
+                                                    stop-color="#0ED7B5"
+                                                    offset="100%"
+                                                />
+                                            </linearGradient>
+                                        </defs>
+                                        <path
+                                            d="M128 0C93.867 0 72.533 17.067 64 51.2 76.8 34.133 91.733 27.733 108.8 32c9.737 2.434 16.697 9.499 24.401 17.318C145.751 62.057 160.275 76.8 192 76.8c34.133 0 55.467-17.067 64-51.2-12.8 17.067-27.733 23.467-44.8 19.2-9.737-2.434-16.697-9.499-24.401-17.318C174.249 14.743 159.725 0 128 0ZM64 76.8C29.867 76.8 8.533 93.867 0 128c12.8-17.067 27.733-23.467 44.8-19.2 9.737 2.434 16.697 9.499 24.401 17.318C81.751 138.857 96.275 153.6 128 153.6c34.133 0 55.467-17.067 64-51.2-12.8 17.067-27.733 23.467-44.8 19.2-9.737-2.434-16.697-9.499-24.401-17.318C110.249 91.543 95.725 76.8 64 76.8Z"
+                                            fill="url(#gradient)"
+                                        />
+                                    </svg>
+                                </span>
+                            );
+                        } else if (tecn === "MongoDB") {
+                            return (
+                                <span class="before:content-['MongoDB']">
+                                    <svg
+                                        class="w-3"
+                                        viewBox="0 0 256 549"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        preserveAspectRatio="xMidYMid"
+                                    >
+                                        <path
+                                            fill="#01EC64"
+                                            d="M175.622 61.108C152.612 33.807 132.797 6.078 128.749.32a1.03 1.03 0 0 0-1.492 0c-4.048 5.759-23.863 33.487-46.874 60.788-197.507 251.896 31.108 421.89 31.108 421.89l1.917 1.28c1.704 26.234 5.966 63.988 5.966 63.988h17.045s4.26-37.54 5.965-63.987l1.918-1.494c.213.214 228.828-169.78 31.32-421.677Zm-47.726 418.05s-10.227-8.744-12.997-13.222v-.428l12.358-274.292c0-.853 1.279-.853 1.279 0l12.357 274.292v.428c-2.77 4.478-12.997 13.223-12.997 13.223Z"
+                                        />
+                                    </svg>
+                                </span>
+                            );
+                        } else if (tecn === "HTML") {
+                            return (
+                                <span class="text-xs p-1 rounded-md bg-[#E96228] uppercase">
+                                    html
+                                </span>
+                            );
+                        } else if (tecn === "CSS") {
+                            return (
+                                <span class="text-xs p-1 rounded-md bg-[#2862E9] uppercase">
+                                    css
+                                </span>
+                            );
+                        } else if (tecn === "javaScript") {
+                            return (
+                                <span class="w-5 before:content-['JavaScript']">
+                                    <svg
+                                        class="box-border w-5"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 1052 1052"
+                                    >
+                                        <path
+                                            fill="#f0db4f"
+                                            d="M0 0h1052v1052H0z"
+                                        />
+                                        <path
+                                            d="M965.9 801.1c-7.7-48-39-88.3-131.7-125.9-32.2-14.8-68.1-25.399-78.8-49.8-3.8-14.2-4.3-22.2-1.9-30.8 6.9-27.9 40.2-36.6 66.6-28.6 17 5.7 33.1 18.801 42.8 39.7 45.4-29.399 45.3-29.2 77-49.399-11.6-18-17.8-26.301-25.4-34-27.3-30.5-64.5-46.2-124-45-10.3 1.3-20.699 2.699-31 4-29.699 7.5-58 23.1-74.6 44-49.8 56.5-35.6 155.399 25 196.1 59.7 44.8 147.4 55 158.6 96.9 10.9 51.3-37.699 67.899-86 62-35.6-7.4-55.399-25.5-76.8-58.4-39.399 22.8-39.399 22.8-79.899 46.1 9.6 21 19.699 30.5 35.8 48.7 76.2 77.3 266.899 73.5 301.1-43.5 1.399-4.001 10.6-30.801 3.199-72.101zm-394-317.6h-98.4c0 85-.399 169.4-.399 254.4 0 54.1 2.8 103.7-6 118.9-14.4 29.899-51.7 26.2-68.7 20.399-17.3-8.5-26.1-20.6-36.3-37.699-2.8-4.9-4.9-8.7-5.601-9-26.699 16.3-53.3 32.699-80 49 13.301 27.3 32.9 51 58 66.399 37.5 22.5 87.9 29.4 140.601 17.3 34.3-10 63.899-30.699 79.399-62.199 22.4-41.3 17.6-91.3 17.4-146.6.5-90.2 0-180.4 0-270.9z"
+                                            fill="#323330"
+                                        />
+                                    </svg>
+                                </span>
+                            );
+                        }
+                    })}
+                </div>
+            )
+        }
+    </div>
+</article>
+
+<style>
+    .links {
+        a {
+            animation: entrada 0.3s ease-in-out both;
+            font-size: 0.875rem /* 14px */;
+            line-height: 1.25rem /* 20px */;
+        }
+        a:last-of-type {
+            animation-delay: 0.2s;
+        }
+    }
+    @keyframes entrada {
+        0% {
+            scale: 0;
+        }
+        100% {
+            scale: 1;
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        article.derecha {
+            margin-left: 10%;
+            /* @apply lg:ml-[10%]; */
+        }
+        article.izquierda {
+            align-self: flex-end;
+            margin-right: 10%;
+            /* @apply lg:mr-[10%]; */
+        }
+    }
+
+    /* iconos tecnologias */
+    .tecn {
+        span {
+            position: relative;
+            padding: 2px 4px;
+            cursor: pointer;
+
+            &:hover::before {
+                display: block;
+                opacity: 1;
+            }
+        }
+    }
+    .tecn {
+        span::before {
+            background-color: #334155; /* slate-700 */
+            padding: 2px 5px;
+            position: absolute;
+            top: 140%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+            opacity: 0;
+            display: none;
+            transition: opacity 0.3s ease-in-out;
+        }
+    }
+</style>

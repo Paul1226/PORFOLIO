@@ -1,5 +1,6 @@
 ---
-import infoPorfolio from "../../public/cvs/infoPorfolio.json"
+import { curriculum } from "../../public/cvs/cv"
+const links = curriculum.links
 ---
 
 <div class="max-w-xl md:order-1">
@@ -40,7 +41,7 @@ import infoPorfolio from "../../public/cvs/infoPorfolio.json"
     </p>
     <nav class="flex flex-wrap gap-4 mt-8">
         <a
-            href={infoPorfolio.personal.emailUrl}
+            href={links.email}
             target="_blank"
             rel="noopener noreferrer"
             role="link"
@@ -65,7 +66,7 @@ import infoPorfolio from "../../public/cvs/infoPorfolio.json"
             Contáctame
         </a>
         <a
-            href={infoPorfolio.personal.linkedinUrl}
+            href={links.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             role="link"
