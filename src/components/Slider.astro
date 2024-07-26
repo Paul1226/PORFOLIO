@@ -5,10 +5,10 @@ import CardProject from "./CardProject.astro";
 <section class="w-full max-w-[900px] mx-auto py-6">
 
     <div class="titular [grid-area:titular] flex flex-col gap-4">
-        <h2 class="text-3xl font-bold text-chill-50 font-cinzel">
+        <h2 class="text-2xl font-bold text-chill-50 font-cinzel text-center">
             Mis Películas
         </h2>
-        <p class="text-sm h-[120px] overflow-auto md:h-[99px] md:text-base">
+        <p class="text-sm h-[120px] overflow-auto md:h-[99px] md:text-base text-gray-300">
             Una plataforma web que permite a los usuarios explorar una amplia
             variedad de películas, ver detalles como sinopsis, reparto y
             calificaciones. Utiliza tecnologías modernas para ofrecer una
@@ -26,19 +26,21 @@ import CardProject from "./CardProject.astro";
                 class="links absolute inset-0 grid place-content-center gap-y-4 font-semibold"
             >
                 <a 
-                    class=" bg-chill-700 px-5 py-2 rounded-full font-semibold tracking-wide transition-all duration-300 ease-in-out hover:shadow-[0px_0px_8px_#ffffff60] hover:scale-105" 
+                    class=" bg-chill-700 flex items-center gap-2 px-5 py-2 rounded-full font-semibold tracking-wide transition-all duration-300 ease-in-out hover:shadow-[0px_0px_8px_#ffffff60] hover:scale-105" 
                     href="https://mispeliculas-1226.netlify.app/"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
+                    <svg class="size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
                     Visitar Sitio
                 </a>
                 <a
-                    class=" px-5 py-2 rounded-full transition-all duration-300 ease-in-out shadow-[0px_0px_8px_#ffffff10] hover:shadow-[0px_0px_8px_#ffffff60]"
+                    class=" px-5 py-2 rounded-full flex items-center gap-2 transition-all duration-300 ease-in-out shadow-[0px_0px_8px_#ffffff10] hover:shadow-[0px_0px_8px_#ffffff60]"
                     href="https://github.com/Paul1226/MisPeliculas"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
+                    <svg class="size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path></svg>
                     Ver Código
                 </a>
             </div>
@@ -95,7 +97,7 @@ import CardProject from "./CardProject.astro";
             grid-template-rows: 1fr 1fr 1fr;
             grid-template-areas: "titular pj1" "titular pj2" "titular pj3";
             gap: 0.8rem;
-            column-gap: 1.2rem;
+            column-gap: 1.5rem;
         }
     }
 </style>
