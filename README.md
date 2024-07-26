@@ -20,6 +20,14 @@
 - [✔] Crear la seccion de proyectos.
 
 ### Tarea 5
-- [_] Trabajar en las skills.
 - [_] Mejorar el resume de presentación.
-- [_] Mejorar las de proyectos.
+- [✔] Mejorar las de proyectos.
+- [_] Las imagenes deben tener su carpeta y deben estar optimizadas.
+- [✔] cambiar tamaño de fuente a una más grande.
+
+### Tarea 6
+- [_] Trabajar en las skills.
+- [_] Trabajar un poco con los titulos y subtituos de los proyectos.
+- [_] Cambiar el color blanco con opacidad por uno puro para verificar los bugs.
+- [_] Agregar Iconos en los links de los proyectos.
+- [_] Investigar si se puede añadir animacion al cambio de proyecto.
