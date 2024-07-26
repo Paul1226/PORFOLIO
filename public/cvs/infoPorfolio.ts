@@ -95,17 +95,28 @@ export const proyectos : ProyectosType[] = [
     ],
     url: "https://mispeliculas-1226.netlify.app/",
     repo: "https://github.com/Paul1226/MisPeliculas",
-    img: "https://raw.githubusercontent.com/Paul1226/PaulDev-Porfolio/main/public/proyecto-pelis.webp"
+    img: "/imagenes/peliculas-pj.png"
   },
   {
-    nombre: "Coworking Space",
-    descrip: "Este proyecto es una landing page diseñada para un espacio de coworking, creada para profundizar mis conocimientos en CSS. La página destaca las características del coworking, las tarifas de membresía y una galería de imágenes.",
+    nombre: "Shopp.PD",
+    descrip: "Desarrollo de un sitio web de comercio en línea para una tienda de cursos online. El sitio por el momento no cuenta con registros para mostrar, en una página para reforzar conocimientos de HTML, CSS y JavaScript.",
     tecn: [
       "astro",
       "tailwind",
       "javaScript"
     ],
-    repo: "https://github.com/Paul1226/Coworking-Space",
-    img: "https://raw.githubusercontent.com/Paul1226/PaulDev-Porfolio/main/public/microsite01.webp"
+    repo: "https://github.com/Paul1226/Shopping-Car",
+    img: "/imagenes/shop-pj.jpg"
+  },
+  {
+    nombre: "Landing Maximize Skill",
+    descrip: "He desarrollado más de 10 páginas web con HTML, CSS y JavaScript. Esto me ha dado una sólida comprensión de la estructura y diseño web, permitiéndome crear interfaces de usuario responsivas y atractivas, así como implementar buenas prácticas de codificación.",
+    tecn: [
+      "astro",
+      "tailwind",
+      "javaScript"
+    ],
+    repo: "https://github.com/Paul1226/NTF-Marketplace",
+    img: "/imagenes/budget-pj.jpg"
   }
 ]
