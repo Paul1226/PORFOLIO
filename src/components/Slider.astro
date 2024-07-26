@@ -1,0 +1,159 @@
+---
+import { proyectos } from "../../public/cvs/infoPorfolio";
+import CardProject from "./CardProject.astro";
+---
+<section class="w-full max-w-[900px] mx-auto py-6">
+
+    <div class="titular [grid-area:titular] flex flex-col gap-4">
+        <h2 class="text-3xl font-bold text-chill-50 font-cinzel">
+            Mis Películas
+        </h2>
+        <p class="text-sm h-[120px] overflow-auto md:h-[99px] md:text-base">
+            Una plataforma web que permite a los usuarios explorar una amplia
+            variedad de películas, ver detalles como sinopsis, reparto y
+            calificaciones. Utiliza tecnologías modernas para ofrecer una
+            experiencia de usuario fluida y atractiva.
+        </p>
+        <figure
+            class="rounded-lg overflow-hidden shadow-[0px_0px_18px_#06b6d430] group relative"
+        >
+            <img
+                class="w-full h-full object-cover aspect-video transition-all duration-300 group-hover:scale-110 group-hover:brightness-[.2]"
+                src="/imagenes/peliculas-pj.png"
+                alt="imagen titular"
+            />
+            <div
+                class="links absolute inset-0 grid place-content-center gap-y-4 font-semibold"
+            >
+                <a 
+                    class=" bg-chill-700 px-5 py-2 rounded-full font-semibold tracking-wide transition-all duration-300 ease-in-out hover:shadow-[0px_0px_8px_#ffffff60] hover:scale-105" 
+                    href="https://mispeliculas-1226.netlify.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Visitar Sitio
+                </a>
+                <a
+                    class=" px-5 py-2 rounded-full transition-all duration-300 ease-in-out shadow-[0px_0px_8px_#ffffff10] hover:shadow-[0px_0px_8px_#ffffff60]"
+                    href="https://github.com/Paul1226/MisPeliculas"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Ver Código
+                </a>
+            </div>
+        </figure>
+    </div>
+
+    {
+        proyectos.map(pj => {
+            return <CardProject title={pj.nombre} urlImg={pj.img} />
+        })
+    }
+</section>
+
+<style>
+    figure {
+        border-radius: 0.5rem;
+        overflow: hidden;
+    }
+    section {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr auto;
+        gap: 0.8rem;
+        row-gap: 1.2rem;
+        grid-template-areas: "titular titular titular" "pj1 pj2 pj3";
+    }
+
+    .links {
+        display: none;
+    }
+    .titular figure:hover .links{
+        display: grid;
+    }
+
+    .links a:first-child {
+        scale: 0;
+        animation: aparicion 300ms ease-in-out both;
+    }
+    .links a:last-child {
+        scale: 0;
+        animation: aparicion 300ms ease-in-out both;
+        animation-delay: 100ms
+    }
+
+    @keyframes aparicion {
+        100% {
+            scale: 1;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        section {
+            grid-template-columns: 3fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-template-areas: "titular pj1" "titular pj2" "titular pj3";
+            gap: 0.8rem;
+            column-gap: 1.2rem;
+        }
+    }
+</style>
+
+<script>
+    import { proyectos } from "../../public/cvs/infoPorfolio";
+    const cards = document.querySelectorAll('.card') as NodeListOf<HTMLElement>;
+
+    const primerCard = cards[0];
+    primerCard.classList.add('active')
+
+    const titular = document.querySelector('.titular') as HTMLElement;
+
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            cards.forEach(card => {
+                card.classList.remove('active')
+            })
+            card.classList.add('active')
+            let info: {
+                nombre: string;
+                descrip: string;
+                tecn: string[];
+                url?: string;
+                repo: string;
+                img: string;
+            } = {
+                nombre: '',
+                descrip: '',
+                tecn: [],
+                url: '',
+                repo: '',
+                img: '',
+            }
+            const src = card.children[0].getAttribute('src')
+
+            proyectos.map(project => {
+                if(project.img === src){
+                    info = project
+                }
+            })
+
+            const srcImagen  = document.querySelector('.titular figure img') as HTMLImageElement
+            const linkSitio = document.querySelector('.titular .links a:first-child') as HTMLAnchorElement
+            const linkRepo = document.querySelector('.titular .links a:last-child') as HTMLAnchorElement
+
+            const nuevaRuta = info?.img
+            titular.children[0].textContent = info?.nombre
+            titular.children[1].textContent = info?.descrip
+            srcImagen.setAttribute('src', nuevaRuta)
+            if(info.url !== undefined){
+                linkSitio.classList.remove('hidden')
+                linkSitio.setAttribute('href', info?.url)
+            }else{
+                linkSitio.classList.add('hidden')
+            }
+
+            linkRepo.setAttribute('href', info?.repo)
+        })
+    })
+</script>
