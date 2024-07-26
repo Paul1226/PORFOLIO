@@ -27,7 +27,7 @@
 
 ### Tarea 6
 - [_] Trabajar en las skills.
-- [_] Trabajar un poco con los titulos y subtituos de los proyectos.
-- [_] Cambiar el color blanco con opacidad por uno puro para verificar los bugs.
-- [_] Agregar Iconos en los links de los proyectos.
+- [✔] Trabajar un poco con los titulos y subtituos de los proyectos.
+- [✔] Cambiar el color blanco con opacidad por uno puro para verificar los bugs.
+- [✔] Agregar Iconos en los links de los proyectos.
 - [_] Investigar si se puede añadir animacion al cambio de proyecto.
