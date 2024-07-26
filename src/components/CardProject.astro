@@ -1,0 +1,25 @@
+---
+interface Props {
+    title: string;
+    urlImg: string;
+}
+
+const { title, urlImg } = Astro.props;
+---
+
+<figure 
+    class="card brightness-[.4] rounded-lg overflow-hidden cursor-pointer transition-colors duration-300 border-2 border-solid border-transparent hover:border-chill-50"
+>
+    <img
+        class="w-full h-full object-cover aspect-video"
+        src={urlImg} 
+        alt=`Imagen de ${title}` 
+    />
+</figure>
+
+<style>
+    figure.active {
+        filter: brightness(1);
+        border: 2px solid #0891b2;
+    }
+</style>
